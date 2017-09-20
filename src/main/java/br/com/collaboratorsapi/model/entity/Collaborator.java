@@ -1,5 +1,7 @@
 package br.com.collaboratorsapi.model.entity;
 
+import br.com.collaboratorsapi.helper.CollaboratorSerializerHelper;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.Entity;
@@ -8,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
+@JsonSerialize(using = CollaboratorSerializerHelper.class)
 @Entity
 public class Collaborator {
 
