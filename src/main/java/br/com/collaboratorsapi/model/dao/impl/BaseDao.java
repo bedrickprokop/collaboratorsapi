@@ -1,8 +1,5 @@
 package br.com.collaboratorsapi.model.dao.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
-import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -14,13 +11,9 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
-import java.util.Locale;
 
 @Repository
 public class BaseDao<T> {
-
-    @Autowired
-    private MessageSource messageSource;
 
     @PersistenceContext
     protected EntityManager entityManager;
@@ -35,10 +28,7 @@ public class BaseDao<T> {
             return (Class<T>) clazz;
         } catch (Exception e) {
 
-            String message = messageSource.getMessage("internal.error.class.notgeneric",
-                    null, LocaleContextHolder.getLocale());
-
-            throw new IllegalStateException(message, e);
+            throw new IllegalStateException("internal.error.class.notgeneric", e);
         }
     }
 

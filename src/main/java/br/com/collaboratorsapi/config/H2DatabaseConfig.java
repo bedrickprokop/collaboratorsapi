@@ -16,5 +16,4 @@ public class H2DatabaseConfig {
         registrationBean.addUrlMappings("/console/*");
         return registrationBean;
     }
-
 }

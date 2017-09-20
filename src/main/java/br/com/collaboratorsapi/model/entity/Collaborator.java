@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Collaborator {
@@ -17,12 +18,10 @@ public class Collaborator {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer code;
 
-    //TODO
-    @NotNull()
+    @NotNull(message = "response.error.empty.name")
     @Length(min = 3, max = 20, message = "response.error.length.name")
     private String name;
 
-    //TODO
     @NotNull(message = "response.error.empty.login")
     @Length(min = 5, max = 20, message = "response.error.length.login")
     private String login;
