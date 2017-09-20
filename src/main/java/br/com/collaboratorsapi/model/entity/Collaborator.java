@@ -17,16 +17,14 @@ public class Collaborator {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer code;
 
-    //TODO adicionar mensagem de texto em arquivo de mensagens separado
-    @NotNull(message = "Name cannot be empty")
-    @Length(min = 3, max = 20, message = "Name length should "
-            + "be between 3 to 20 characters")
+    //TODO
+    @NotNull()
+    @Length(min = 3, max = 20, message = "response.error.length.name")
     private String name;
 
-    //TODO adicionar mensagem de texto em arquivo de mensagens separado
-    @NotNull(message = "Login cannot be empty")
-    @Length(min = 5, max = 20, message = "Login length should "
-            + "be between 5 to 20 characters")
+    //TODO
+    @NotNull(message = "response.error.empty.login")
+    @Length(min = 5, max = 20, message = "response.error.length.login")
     private String login;
 
     //TODO adicionar validação para enum

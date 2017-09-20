@@ -1,6 +1,6 @@
 package br.com.collaboratorsapi.config;
 
-import br.com.collaboratorsapi.controller.CollaboratorController;
+import br.com.collaboratorsapi.endpoint.CollaboratorEndpoint;
 import br.com.collaboratorsapi.exception.ApplicationExceptionMapper;
 import br.com.collaboratorsapi.exception.ValidationExceptionMapper;
 import org.glassfish.jersey.server.ResourceConfig;
@@ -20,7 +20,7 @@ public class JerseyRestConfig extends ResourceConfig {
     }
 
     private void registerControllers() {
-        registerClasses(CollaboratorController.class);
+        registerClasses(CollaboratorEndpoint.class);
     }
 
     private void registerMappers() {

@@ -1,4 +1,4 @@
-package br.com.collaboratorsapi.controller;
+package br.com.collaboratorsapi.endpoint;
 
 import br.com.collaboratorsapi.model.entity.Collaborator;
 import br.com.collaboratorsapi.model.service.CollaboratorService;
@@ -13,7 +13,7 @@ import java.util.List;
 
 @Controller
 @Path("/collaborator")
-public class CollaboratorController {
+public class CollaboratorEndpoint {
 
     @Inject
     private CollaboratorService collaboratorService;

@@ -5,16 +5,22 @@ import br.com.collaboratorsapi.model.dao.CollaboratorDao;
 import br.com.collaboratorsapi.model.entity.Collaborator;
 import br.com.collaboratorsapi.model.service.CollaboratorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.ws.rs.core.Response;
 import java.util.List;
+import java.util.Locale;
 
 //TODO analisar anotações de transação e add para cada método exceto os de busca
 @Service
 @Transactional
 public class CollaboratorServiceImpl implements CollaboratorService {
+
+    @Autowired
+    private MessageSource messageSource;
 
     @Autowired
     private CollaboratorDao collaboratorDao;
@@ -30,9 +36,10 @@ public class CollaboratorServiceImpl implements CollaboratorService {
         if (null != collaborator) {
             return collaborator;
         }
-        //TODO adicionar mensagem de texto em arquivo de mensagens separado
-        throw new ApplicationException("Entity not found",
-                Response.Status.NOT_FOUND.getStatusCode());
+
+        String message = messageSource.getMessage("response.error.entity.notfound",
+                null, LocaleContextHolder.getLocale());
+        throw new ApplicationException(message, Response.Status.NOT_FOUND.getStatusCode());
     }
 
     @Override
@@ -46,9 +53,9 @@ public class CollaboratorServiceImpl implements CollaboratorService {
             return collaboratorDao.update(collaborator);
         }
 
-        //TODO adicionar mensagem de texto em arquivo de mensagens separado
-        throw new ApplicationException("Missing attribute to update",
-                Response.Status.BAD_REQUEST.getStatusCode());
+        String message = messageSource.getMessage("response.error.missing.attribute",
+                null, LocaleContextHolder.getLocale());
+        throw new ApplicationException(message, Response.Status.BAD_REQUEST.getStatusCode());
     }
 
     @Override
@@ -58,8 +65,8 @@ public class CollaboratorServiceImpl implements CollaboratorService {
             return collaboratorDao.delete(collaborator);
         }
 
-        //TODO adicionar mensagem de texto em arquivo de mensagens separado
-        throw new ApplicationException("Entity not found",
-                Response.Status.NOT_FOUND.getStatusCode());
+        String message = messageSource.getMessage("response.error.entity.notfound",
+                null, LocaleContextHolder.getLocale());
+        throw new ApplicationException(message, Response.Status.NOT_FOUND.getStatusCode());
     }
 }
