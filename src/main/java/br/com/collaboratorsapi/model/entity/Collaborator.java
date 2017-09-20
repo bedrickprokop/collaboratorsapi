@@ -1,15 +1,12 @@
 package br.com.collaboratorsapi.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 @Entity
 public class Collaborator {
@@ -26,12 +23,11 @@ public class Collaborator {
     @Length(min = 5, max = 20, message = "response.error.length.login")
     private String login;
 
-    //TODO adicionar validação para enum
+    @NotNull(message = "response.error.empty.profile")
     private CollaboratorProfileEnum profile;
 
-    //TODO adicionar validação e analisar conflito com anotação @JSonIgnore
-    @JsonIgnore
-    //@NotEmpty
+    @NotNull(message = "response.error.empty.password")
+    @Length(min = 5, max = 15, message = "response.error.length.password")
     private String password;
 
     public Collaborator() {
