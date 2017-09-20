@@ -26,7 +26,6 @@ public class Collaborator {
     @NotNull(message = "response.error.empty.profile")
     private CollaboratorProfileEnum profile;
 
-    @NotNull(message = "response.error.empty.password")
     @Length(min = 5, max = 15, message = "response.error.length.password")
     private String password;
 
