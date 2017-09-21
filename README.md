@@ -1,14 +1,20 @@
-# Collaboratorsapi
+# CollaboratorsAPI
 
 Web API that handle requests from collaborators app and manage the logical and persistence of the data
 
+### Requirements
+
+- Java 7/8
+- Maven
+- An IDE for development if you want edit the code in a easier way like IntellIj, Eclipse, Netbeans, etc
+
 ### Setup and statup
 
-$ git clone https://github.com/bedrickprokop/collaboratorsapi.git
+- $ git clone https://github.com/bedrickprokop/collaboratorsapi.git
 
-$ cd collaboratorsapi
+- $ cd collaboratorsapi
 
-$ mvn spring-boot:run
+- $ mvn spring-boot:run
 
 ### Accessing the embedded database
 

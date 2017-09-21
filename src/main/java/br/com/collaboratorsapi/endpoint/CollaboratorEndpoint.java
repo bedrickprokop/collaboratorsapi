@@ -15,6 +15,12 @@ import java.util.List;
 @Path("/collaborator")
 public class CollaboratorEndpoint {
 
+    //TODO Refatorar tratamento de entidades e erros para retornar via protocolo http
+    // usando rest seguindo os padrões definidos pelo protocolo http.
+
+    //SERVER    - http://www.codingpedia.org/ama/error-handling-in-rest-api-with-jersey/
+    //ANDROID   - https://futurestud.io/tutorials/retrofit-2-simple-error-handling
+
     @Inject
     private CollaboratorService collaboratorService;
 
